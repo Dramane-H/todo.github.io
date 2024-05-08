@@ -18,7 +18,7 @@ class TodosAPITestCase(APITestCase):
 
         response = self.client.post(
             reverse('login'), {"email": "email@gmail.com", "password": "password"})
-        
+
         self.client.credentials(
             HTTP_AUTHORIZATION=f"Bearer {response.data['token']}")
 
