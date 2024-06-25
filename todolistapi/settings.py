@@ -40,9 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'authentication',
-    'django_filters',
     'todos',
-    'drf_yasg',
 ]
 
 MIDDLEWARE = [
@@ -82,8 +80,12 @@ WSGI_APPLICATION = 'todolistapi.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'dramzy_db',
+        'USER': 'dramzy',
+        'PASSWORD': 'dramzy',
+        'HOST': 'localhost',
+        'PORT': '5432',
     }
 }
 
