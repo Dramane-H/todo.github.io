@@ -81,11 +81,11 @@ WSGI_APPLICATION = 'todolistapi.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'dramzy_db',
-        'USER': 'dramzy',
-        'PASSWORD': 'dramzy',
-        'HOST': 'localhost',
-        'PORT': '5432',
+        'NAME': os.environ.get('DB_NAME', 'dramzy_db'),
+        'USER': os.environ.get('DB_USER', 'dramzy'),
+        'PASSWORD': os.environ.get('DB_PASSWORD', 'dramzy'),
+        'HOST': os.environ.get('DB_HOST', 'localhost'),
+        'PORT': os.environ.get('DB_PORT', '5432'),
     }
 }
 
