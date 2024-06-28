@@ -3,7 +3,6 @@ from todos.serializers import TodoSerializer
 from rest_framework.permissions import IsAuthenticated
 from todos.models import Todo
 from rest_framework import permissions, filters
-from django_filters.rest_framework import DjangoFilterBackend
 from todos.pagination import CustomPageNumberPagination
 
 
@@ -12,7 +11,7 @@ class TodosAPIView(ListCreateAPIView):
     permission_classes = [IsAuthenticated, ]
     pagination_class = CustomPageNumberPagination
     
-    filter_backends = [DjangoFilterBackend, filters.SearchFilter, filters.OrderingFilter]
+    # filter_backends = [DjangoFilterBackend, filters.SearchFilter, filters.OrderingFilter]
     
     filterset_fields = ["id", "title", "is_complete"]
     search_fields = ["id", "title", "is_complete"]
