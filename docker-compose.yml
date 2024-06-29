@@ -12,7 +12,7 @@ services:
 
   web:
     build: .
-    command: python manage.py runserver 0.0.0.0:8000
+    command: gunicorn --workers 3 --bind 0.0.0.0:8000 todolistapi.wsgi:application
     volumes:
       - .:/app
     ports:
@@ -20,7 +20,7 @@ services:
     depends_on:
       - db
     environment:
-      SECRET_KEY: 'my-django-secret'
+      SECRET_KEY: 'generated-secret-key'
       DB_NAME: dramzy_db
       DB_USER: dramzy
       DB_PASSWORD: dramzy
