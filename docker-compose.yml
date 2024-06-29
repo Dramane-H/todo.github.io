@@ -4,9 +4,9 @@ services:
   db:
     image: postgres:13
     environment:
-      POSTGRES_DB: dramzy_db
-      POSTGRES_USER: dramzy
-      POSTGRES_PASSWORD: dramzy
+      POSTGRES_DB: ${DB_NAME}
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
     ports:
       - "5432:5432"
 
@@ -20,9 +20,11 @@ services:
     depends_on:
       - db
     environment:
-      SECRET_KEY: 'generated-secret-key'
-      DB_NAME: dramzy_db
-      DB_USER: dramzy
-      DB_PASSWORD: dramzy
-      DB_HOST: db
-      DB_PORT: 5432
+      SECRET_KEY: ${SECRET_KEY}
+      DB_NAME: ${DB_NAME}
+      DB_USER: ${DB_USER}
+      DB_PASSWORD: ${DB_PASSWORD}
+      DB_HOST: ${DB_HOST}
+      DB_PORT: ${DB_PORT}
+    env_file:
+      - .env

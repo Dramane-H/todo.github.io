@@ -19,14 +19,6 @@ RUN pip install -r requirements.txt
 # Copy project
 COPY . /app/
 
-# Set environment variables for Django
-ENV SECRET_KEY='generated-secret-key'
-ENV DB_NAME=dramzy_db
-ENV DB_USER=dramzy
-ENV DB_PASSWORD=dramzy
-ENV DB_HOST=db
-ENV DB_PORT=5432
-
 # Collect static files
 RUN python manage.py collectstatic --noinput
 
